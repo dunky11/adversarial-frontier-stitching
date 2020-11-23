@@ -1,4 +1,4 @@
-# adversarial-frontier-stitching
+# Adversarial Frontier Stitching
 
 This is an implemention of "[Adversarial Frontier Stitching for Remote Neural Network Watermarking](https://arxiv.org/pdf/1711.01894.pdf)"
  by Erwan Le Merrer, Patrick Perez and Gilles Trédan in TensorFlow.
