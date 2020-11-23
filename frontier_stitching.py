@@ -40,12 +40,12 @@ def gen_adversaries(model, l, dataset, eps):
 # finds a value for theta (maximum number of errors tolerated for verification)
 def find_tolerance(key_length, threshold):
     theta = 0
-    left = 2 ** (-key_length)
+    factor = 2 ** (-key_length)
     while(True):
         s = 0
         for z in range(theta + 1):
             s += binomial(key_length, z)
-        if left * s >= threshold:
+        if factor * s >= threshold:
             return theta
         theta += 1
 
