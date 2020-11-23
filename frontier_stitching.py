@@ -1,4 +1,5 @@
 import tensorflow as tf
+from helpers import binomial
 
 
 def fast_gradient_signed(x, y, model, eps):
@@ -34,3 +35,25 @@ def gen_adversaries(model, l, dataset, eps):
                 return true_advs, false_advs
 
     return true_advs, false_advs
+
+
+# finds a value for theta (maximum number of errors tolerated for verification)
+def find_tolerance(key_length, threshold):
+    theta = 0
+    left = 2 ** (-key_length)
+    while(True):
+        s = 0
+        for z in range(theta + 1):
+            s += binomial(key_length, z)
+        if left * s >= threshold:
+            return theta
+        theta += 1
+
+
+def verify():
+    m_k = 0
+    length = 0
+    for x, y in key_set:
+        length += len(x)
+        preds = tf.argmax(model(x), axis=1)
+        m_k += tf.reduce_sum(tf.cast(preds != y, tf.int32))
