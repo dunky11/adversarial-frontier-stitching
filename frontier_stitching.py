@@ -50,10 +50,17 @@ def find_tolerance(key_length, threshold):
         theta += 1
 
 
-def verify():
+def verify(model, key_set, threshold=0.05):
     m_k = 0
     length = 0
     for x, y in key_set:
         length += len(x)
         preds = tf.argmax(model(x), axis=1)
         m_k += tf.reduce_sum(tf.cast(preds != y, tf.int32))
+    theta = find_tolerance(length, threshold)
+    m_k = m_k.numpy()
+    return {
+        "success": m_k < theta,
+        "false_preds": m_k,
+        "max_fals_pred_tolerance": theta
+    }
