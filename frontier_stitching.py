@@ -41,10 +41,10 @@ def gen_adversaries(model, l, dataset, eps):
 def find_tolerance(key_length, threshold):
     theta = 0
     factor = 2 ** (-key_length)
+    s = 0
     while(True):
-        s = 0
-        for z in range(theta + 1):
-            s += binomial(key_length, z)
+        # for z in range(theta + 1):
+        s += binomial(key_length, theta)
         if factor * s >= threshold:
             return theta
         theta += 1
