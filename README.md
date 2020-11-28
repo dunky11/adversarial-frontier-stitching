@@ -5,7 +5,14 @@ This is an implemention of "[Adversarial Frontier Stitching for Remote Neural Ne
 
 ### What is adversarial frontier stitching?
 
-ToDo
+Adversarial frontier stitching is an algorithm to inject a watermark into a neural network. It works by first generating a set of inputs,
+also called the key set which will act as our watermark.
+It does that by applying a transformation, using the fast gradient sign method, to correctly classified inputs.
+If the transformed inputs are still correctly classified we call them false adversaries and if the are now incorrectly classified we call them false adversaries.
+
+
+
+  
 
 ### How to use
 
