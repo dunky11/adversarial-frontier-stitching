@@ -25,6 +25,7 @@ A simple example can be found at [example.ipynb](https://github.com/dunky11/adve
 
 
 1. Call [gen_adversaries(model, l, dataset, eps)](https://github.com/dunky11/adversarial-frontier-stitching/blob/1c0dd2d692ad5794d19281a6ffb6d3e9a3b2ba53/frontier_stitching.py#L15-L37) in order to generate your true and false adversary sets, which will act as your watermark, where:
+
 * model is your pretrained model.
 * l is the length of the generated datasets - the true and false adversary sets will each have a length of l / 2.
 * dataset is the TensorFlow dataset used for training.
