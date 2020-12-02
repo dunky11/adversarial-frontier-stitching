@@ -17,6 +17,8 @@ until the adversaries are correctly classified again. Our model is now watermark
 
 ### How to use
 
+A simple example can be found at example.ipynb or example.py.
+
 1. Call gen_adversaries(model, l, dataset, eps) in order to generate your true and false adversary sets, which will act as your watermark, where:
 - model is your pretrained model.
 - l is the length of the generated datasets - the true and false adversary sets will both have a length of l / 2.
