@@ -18,7 +18,7 @@ until the adversaries are correctly classified again. Our model is now watermark
 ### How to use
 
 1. Call gen_adversaries(model, l, dataset, eps) in order to generate your true and false adversary sets, which will act as your watermark.
-model is your pretrained model. l is the length of the generated datasets - the true and false adversary sets will both have a length of l / 2. dataset is the TensorFlow dataset used for training. eps is the strength of the modification
+1. model is your pretrained model. 2. l is the length of the generated datasets - the true and false adversary sets will both have a length of l / 2. 3. dataset is the TensorFlow dataset used for training. eps is the strength of the modification
 on the training set in order to generate the adversaries. It is used in the "fast gradient sign" method.
 2. Train your model on the concatenation of training dataset and the true and false adversaries. Afterwards the model is watermarked.
 3. Use verify() on the watermarked model 
