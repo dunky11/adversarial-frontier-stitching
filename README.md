@@ -10,14 +10,18 @@ also called the key set which will act as our watermark.
 It does that by applying a transformation, using the "fast gradient sign" method, to correctly classified inputs.
 If the transformed inputs are still correctly classified we call them false adversaries and if the are now incorrectly classified we call them true adversaries.
 Next we train our pretrained model on the concatenation of the training set and the true and false adversaries using their original labels
-until the adversaries are correctly clasdified again. Our model is now watermarked. If the accuracy of the adversaries is above a ääpredefined arbitrary threshold we verfied that the model was watermarked by us.
+until the adversaries are correctly classified again. Our model is now watermarked. If the accuracy of the adversaries is above a predefined arbitrary threshold we verfied that the model was watermarked by us.
 
 
   
 
 ### How to use
 
-ToDo
+1. Call gen_adversaries(model, l, dataset, eps) in order to generate your true and false adversary sets, which will act as your watermark.
+model is your pretrained model. l is the length of the generated datasets - the true and false adversary sets will both have a length of l / 2. dataset is the TensorFlow dataset used for training. eps is the strength of the modification
+on the training set in order to generate the adversaries. It is used in the "fast gradient sign" method.
+2. Train your model on the concatenation of training dataset and the true and false adversaries. Afterwards the model is watermarked.
+3. Use verify() on the watermarked model 
 
 ### Contribute
 
