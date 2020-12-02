@@ -7,7 +7,11 @@ This is an implemention of "[Adversarial Frontier Stitching for Remote Neural Ne
 
 Adversarial frontier stitching is an algorithm to inject a watermark into a neural network. It works by first generating a set of inputs,
 also called the key set which will act as our watermark.
-It does that by applying a transformation, using the "[fast gradient sign](https://arxiv.org/abs/1412.6572)" method, to correctly classified inputs.
+It does that by applying a transformation, using the "[
+
+
+
+sign](https://arxiv.org/abs/1412.6572)" method, to correctly classified inputs.
 If the transformed inputs are still correctly classified we call them false adversaries and if the are now incorrectly classified we call them true adversaries.
 Next we train our pretrained model on the concatenation of the training set and the true and false adversaries using their original labels
 until the adversaries are correctly classified again. Our model is now watermarked. If the accuracy of the adversaries is above a predefined arbitrary threshold we verfied that the model was watermarked by us.
@@ -24,7 +28,7 @@ A simple example can be found at [example.ipynb](https://github.com/dunky11/adve
 - model is your pretrained model.
 - l is the length of the generated datasets - the true and false adversary sets will each have a length of l / 2.
 - dataset is the TensorFlow dataset used for training.
-- eps is the strength of the modification on the training set in order to generate the adversaries. It is used in the "[fast gradient sign](https://arxiv.org/abs/1412.6572)" method.
+- eps is the strength of the modification on the training set in order to generate the adversaries. It is used in the "[fast gradient sign](https://github.com/dunky11/adversarial-frontier-stitching/blob/10f82d51f9433947af03a841f508c427fa82f8db/frontier_stitching.py#L5-L12)" method.
 2. Train your model on the concatenation of the training dataset and the true and false adversaries. Afterwards the model is watermarked.
 3. Use [verify(model, key_set, threshold)](https://github.com/dunky11/adversarial-frontier-stitching/blob/1c0dd2d692ad5794d19281a6ffb6d3e9a3b2ba53/frontier_stitching.py#L53-L66) on a model in order to test wether the model was watermarked by us, where:
 - model is the model to test.
