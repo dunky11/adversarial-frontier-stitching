@@ -25,9 +25,9 @@ until the adversaries are correctly classified again. Our model is now watermark
 2. Train your model on the concatenation of the training dataset and the true and false adversaries. Afterwards the model is watermarked.
 3. Use verify(model, key_set, threshold) on a model in order to test wether the model was watermarked by us, where:
 - model is the model to test.
-- key set is a TensorFlow dataset comtaining the concatenation of the true and false adversary sets.
+- key set is a TensorFlow dataset containing the concatenation of the true and false adversary sets.
 - epsilon is a predefined hyperparameter in the range of zero to one which controls the number of correct predictions on the key_set the model needs
-in order to be watermarked by us. A lower epsilon gives more certainty to verifies prediction, but makes it also model easy for third parties to remove the watermark.
+in order to be watermarked by us. A lower epsilon gives more certainty to verifies prediction, but makes it also model easy for third parties to remove the watermark. Defaults to 0.05 which was used in the paper.
 
 ### Contribute
 
