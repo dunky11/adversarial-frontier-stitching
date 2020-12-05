@@ -17,7 +17,7 @@ until the adversaries are correctly classified again. Our model is now watermark
 
 ### How to use
 
-A simple example can be found at [example.ipynb](https://github.com/dunky11/adversarial-frontier-stitching/blob/main/example.ipynb). 
+A simple example can be found at [example.ipynb](https://github.com/dunky11/adversarial-frontier-stitching/blob/main/example.ipynb) or [example.py](https://github.com/dunky11/adversarial-frontier-stitching/blob/main/example.py). 
 
 
 1. Call [gen_adversaries(model, l, dataset, eps)](https://github.com/dunky11/adversarial-frontier-stitching/blob/1c0dd2d692ad5794d19281a6ffb6d3e9a3b2ba53/frontier_stitching.py#L15-L37) in order to generate your true and false adversary sets, which will act as your watermark, where:
