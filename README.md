@@ -25,7 +25,7 @@ A simple example can be found at [example.ipynb](https://github.com/dunky11/adve
 * l is the length of the generated datasets - the true and false adversary sets will each have a length of l / 2.
 * dataset is the TensorFlow dataset used for training.
 * eps is the strength of the modification on the training set in order to generate the adversaries. It is used in the "[fast gradient sign](https://github.com/dunky11/adversarial-frontier-stitching/blob/10f82d51f9433947af03a841f508c427fa82f8db/frontier_stitching.py#L5-L12)" method.
-2. Train your model on the concatenation of the training dataset and the true and false adversaries until the true adversaries are Propeller predicted again. Afterwards the model is watermarked.
+2. Train your model on the concatenation of the training dataset and the true and false adversaries until the true adversaries are properly predicted again. Afterwards the model is watermarked.
 3. Use [verify(model, key_set, threshold)](https://github.com/dunky11/adversarial-frontier-stitching/blob/1c0dd2d692ad5794d19281a6ffb6d3e9a3b2ba53/frontier_stitching.py#L53-L66) on a model in order to test wether the model was watermarked by us, where:
 * model is the model to test.
 * key set is a TensorFlow dataset containing the concatenation of the true and false adversary sets.
